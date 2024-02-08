@@ -1,0 +1,51 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "startold": "node build/index.js",
+    "clean": "rimraf coverage build tmp",
+    "prebuild": "npm run lint",
+    "buildold": "tsc -p tsconfig.json",
+    "build:watch": "tsc -w -p tsconfig.json",
+    "build:release": "npm run clean && tsc -p tsconfig.release.json",
+    "lintold": "eslint . --ext .ts --ext .mts",
+    "test": "jest --coverage",
+    "prettier": "prettier --config .prettierrc --write .",
+    "test:watch": "jest --watch",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react-dom": "^18.2.18",
+    "command-line-args": "^5.1.1",
+    "next": "^14.0.4",
+    "next-transpile-modules": "^10.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^14.0.4",
+    "@tsconfig/node18": "^1.0.1",
+    "@types/jest": "~27.5",
+    "@types/node": "~16",
+    "@types/react": "18.2.45",
+    "@types/sprintf-js": "^1.1.4",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
+    "jest": "~28.1",
+    "postcss": "^8.4.32",
+    "prettier": "~2.6",
+    "tailwindcss": "^3.4.0",
+    "ts-jest": "~28.0",
+    "tsutils": "~3.21",
+    "typescript": "^5.3.3"
+  }
+}
