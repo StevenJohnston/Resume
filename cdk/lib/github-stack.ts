@@ -8,7 +8,7 @@ export class GithubActionsRoleStack extends cdk.Stack {
 
     const provider = new iam.OpenIdConnectProvider(this, "GithubProvider", {
       url: "https://token.actions.githubusercontent.com",
-      clientIds: ["sts.amazonaws.com"], // Or a more specific audience
+      clientIds: ["sts.amazonaws.com"],
     });
 
     const role = new iam.Role(this, "GitHubActionsRole", {
@@ -16,8 +16,7 @@ export class GithubActionsRoleStack extends cdk.Stack {
         provider.openIdConnectProviderArn,
         {
           StringLike: {
-            // Only allow specified subjects to assume this role
-            [`token.actions.githubusercontent.com:sub`]:
+            "token.actions.githubusercontent.com:sub":
               "repo:StevenJohnston/Resume:*",
           },
           StringEquals: {
@@ -26,5 +25,21 @@ export class GithubActionsRoleStack extends cdk.Stack {
         }
       ),
     });
+
+    const assumeCdkDeploymentRoles = new iam.PolicyStatement({
+      effect: iam.Effect.ALLOW,
+      actions: ["sts:AssumeRole"],
+      resources: ["arn:aws:iam::*:role/cdk-*"],
+      conditions: {
+        StringEquals: {
+          "aws:ResourceTag/aws-cdk:bootstrap-role": [
+            "file-publishing",
+            "lookup",
+            "deploy",
+          ],
+        },
+      },
+    });
+    role.addToPolicy(assumeCdkDeploymentRoles);
   }
 }
