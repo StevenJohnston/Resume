@@ -1,8 +1,7 @@
-Host my resume like a true dev
+Host my resume like a true dev. Visit [http://resume.stevenjohnston.ca/](http://resume.stevenjohnston.ca/)
 
 ## Goals
 
-- QR code
 - HTML resume
 - PDF version
 
