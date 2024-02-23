@@ -70,7 +70,8 @@ export async function GET(req: Request) {
     const myDoc = await MyDoc()
 
     const pdfStream = await ReactPDF.renderToStream(myDoc);
-    return new Response(pdfStream, {
+
+    return new Response(pdfStream as unknown as BodyInit, {
         headers: {
             'Content-Type': 'application/pdf',
         }
