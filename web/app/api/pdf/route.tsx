@@ -32,7 +32,7 @@ Font.register({
 const MyDoc = async () => {
     const ReactDOMServer = (await import('react-dom/server')).default
 
-    const defaultPage = DefaultPage({})
+    const defaultPage = DefaultPage({ isPdf: true })
     const html = ReactDOMServer.renderToStaticMarkup(defaultPage);
 
 
