@@ -147,7 +147,7 @@ const Resume = ({ isPdf }: ResumeProps) => {
                 </div>
             </div>
             <div>
-                <div className="flex flex-row">
+                <div className="flex flex-row mb-2">
                     <div className="text-base font-bold text-red-700 mr-2">
                         Languages and Technologies
                     </div>
