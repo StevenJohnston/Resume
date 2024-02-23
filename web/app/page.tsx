@@ -10,7 +10,7 @@ interface ResumeProps {
 }
 
 const Resume = ({ isPdf }: ResumeProps) => {
-    const textClass = isPdf ? 'text-[10px]' : 'text-sm'
+    const listClasses = isPdf ? 'text-[10px]' : 'text-sm pl-3'
 
     return (
         <div className="px-12 py-8 md:max-w-4xl">
@@ -44,8 +44,17 @@ const Resume = ({ isPdf }: ResumeProps) => {
                         </a>
                     </div>
                 </div>
-                <div className="text-sm mt-8 w-2/3">
-                    With 8+ years of experience, I'm a versatile full-stack developer adept at building software solutions for early-stage companies. I have a strong foundation in both front-end and back-end development, as well as experience with DevOps practices (AWS, CDK, CI/CD, Git). This allows me to seamlessly translate concepts into scalable products while offering strategic technical guidance.
+                <div className="text-sm w-2/3">
+                    <div className="h-8 flex flex-row-reverse">
+                        {
+                            !isPdf && (
+                                <a href="/api/pdf" className="border-red-700 border-2 rounded-md text-red-700 font-bold px-16 py-2 mb-2 self-end" target="_blank">Download PDF</a>
+                            )
+                        }
+                    </div>
+                    <p>
+                        With 8+ years of experience, I'm a versatile full-stack developer adept at building software solutions for early-stage companies. I have a strong foundation in both front-end and back-end development, as well as experience with DevOps practices (AWS, CDK, CI/CD, Git). This allows me to seamlessly translate concepts into scalable products while offering strategic technical guidance.
+                    </p>
                 </div>
             </div>
             <div>
@@ -63,8 +72,8 @@ const Resume = ({ isPdf }: ResumeProps) => {
                         fromDate="Sept 2022"
                         toDate="Feb 2024"
                     >
-                        <div className={`${textClass}`}>
-                            <ul className="list-inside list-disc leading-tight">
+                        <div className={`${listClasses}`}>
+                            <ul className="list-disc leading-tight">
                                 <li>Designed detailed specifications documents outlining system architecture, data flows, and API integrations for an innovative financial automation platform, ensuring alignment with legal requirements.</li>
                                 <li>Transformed 3 startup concepts into reality, defining technical solutions, building robust prototypes, and driving development from idea to pre-launch stage.</li>
                                 <li>Dramatically improved developer efficiency by replacing a cloud-based development workflow with a local development kit, reducing testing time by 10 minutes.</li>
@@ -81,8 +90,8 @@ const Resume = ({ isPdf }: ResumeProps) => {
                         fromDate="March 2022"
                         toDate="Sept 2022"
                     >
-                        <div className={`${textClass}`}>
-                            <ul className="list-inside list-disc leading-tight">
+                        <div className={`${listClasses}`}>
+                            <ul className="list-disc leading-tight">
                                 <li>Developed a POC video messaging app during a 2-week hackathon, designed for asynchronous communication with features like video recording, message scheduling, and offline viewing.</li>
                                 <li>Heavily modified an open source project to meet our needs while speeding up development.</li>
                                 <li>Proxied API calls to extend 3rd party vendor functionality</li>
@@ -95,8 +104,8 @@ const Resume = ({ isPdf }: ResumeProps) => {
                         fromDate="2020"
                         toDate="March 2022"
                     >
-                        <div className={`${textClass}`}>
-                            <ul className="list-inside list-disc leading-tight">
+                        <div className={`${listClasses}`}>
+                            <ul className="list-disc leading-tight">
                                 <li>Led the upgrade of an EOL MongoDB cluster, mitigating security risks and ensuring seamless operation of 30+ microservices.</li>
                                 <li>Designed and implemented a CI/CD pipeline using GitHub, Jenkins, AWS S3, and Airflow, accelerating development cycles and reducing manual errors for the data engineering team.</li>
                                 <li>Rapidly assumed data engineering responsibilities, becoming proficient in Snowflake and dbt to maintain data warehouse integrity and transformations.</li>
@@ -109,8 +118,8 @@ const Resume = ({ isPdf }: ResumeProps) => {
                         fromDate="2018"
                         toDate="2020"
                     >
-                        <div className={`${textClass}`}>
-                            <ul className="list-inside list-disc leading-tight">
+                        <div className={`${listClasses}`}>
+                            <ul className="list-disc leading-tight">
                                 <li>Demonstrated initiative by proactively taking on full-stack tickets shortly after being hired as a frontend developer, expanding skillset and contributions.</li>
                                 <li>Automated manual tasks for account managers with internal tools, increasing their efficiency and improving client experience.</li>
                                 <li>Built user-friendly graphs using c3, providing clear visualizations of key data for improved decision-making.</li>
