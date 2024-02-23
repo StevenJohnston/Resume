@@ -161,7 +161,7 @@ const Resume = ({ isPdf }: ResumeProps) => {
                     />
                     <Technology
                         title="Technologies"
-                        description="React, Next.js, Tailwind CSS, Git, Github + Actions, CDK, Terraform, GraphQL, Prisma, Webflow"
+                        description="React, Next.js, Tailwind CSS, Git, Github + Actions, CDK, Terraform, GraphQL, Prisma, Webflow, LLM, GTP-4"
                     />
                     <Technology
                         title="AWS"
