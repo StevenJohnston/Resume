@@ -4,6 +4,7 @@ import Education from "@/app/_components/Education";
 import Technology from "@/app/_components/Technology";
 import GithubIcon from "@/app/_components/github-outline.svg"
 import Linked from "@/app/_components/linkedin-outline.svg"
+import ResumeDownload from "./_components/ResumeDownload";
 
 interface ResumeProps {
     isPdf?: boolean
@@ -13,45 +14,44 @@ const Resume = ({ isPdf }: ResumeProps) => {
     const listClasses = isPdf ? 'text-[10px]' : 'text-sm pl-3'
 
     return (
-        <div className="px-12 py-8 md:max-w-4xl">
+        <div className="px-4 sm:px-12 py-8 sm:max-w-4xl">
             {/* Header */}
-            <div className="mb-2 flex flex-row">
-                <div className="mr-6 flex flex-col w-1/3">
+            <div className="mb-2 flex flex-col sm:flex-row">
+                <div className="mr-6 flex flex-col sm:w-1/3">
                     <h1 className="text-2xl leading-none font-bold" >STEVEN JOHNSTON</h1>
                     <p className="font-bold flex text-sm text-red-700 mb-2">Fullstack Engineer</p>
-                    <div className="flex flex-row">
-                        <EnvelopeIcon className="h-4 w-4" fill="white" />
-                        <p className="text-[10px] pl-1">me@stevenjohnston.ca</p>
-                    </div>
-                    <div className="flex flex-row">
-                        <PhoneIcon className="h-4 w-4" fill="white" />
-                        <p className="text-[10px] pl-1">519 503 3407</p>
-                    </div>
-                    <div className="flex flex-row">
-                        <MapPinIcon className="h-4 w-4" fill="white" fillOpacity={0} />
-                        <p className="text-[10px] pl-1">Kitchener, Ontario, Canada</p>
-                    </div>
-                    <div className="flex flex-row">
-                        <a className="flex flex-row text-black no-underline" href="https://github.com/StevenJohnston" target="_blank">
-                            <GithubIcon className="h-4 w-4" fill="black" />
-                            <p className="text-[10px] pl-1">github.com/StevenJohnston</p>
-                        </a>
-                    </div>
-                    <div className="flex flex-row">
-                        <a className="flex flex-row text-black no-underline " href="https://www.linkedin.com/in/steven-johnston-6a162487/" target="_blank">
-                            <Linked fill="black" className="h-4 w-4" />
-                            <p className="text-[10px] pl-1">linkedin.com/StevenJohnston</p>
-                        </a>
+                    <div className="justify-evenly flex-wrap flex sm:block">
+                        <div className="flex flex-row">
+                            <EnvelopeIcon className="h-4 w-4" fill="white" />
+                            <p className="text-[10px] pl-1">me@stevenjohnston.ca</p>
+                        </div>
+                        <div className="flex flex-row">
+                            <PhoneIcon className="h-4 w-4" fill="white" />
+                            <p className="text-[10px] pl-1">519 503 3407</p>
+                        </div>
+                        <div className="flex flex-row">
+                            <MapPinIcon className="h-4 w-4" fill="white" fillOpacity={0} />
+                            <p className="text-[10px] pl-1">Kitchener, Ontario, Canada</p>
+                        </div>
+                        <div className="flex flex-row">
+                            <a className="flex flex-row text-black no-underline" href="https://github.com/StevenJohnston" target="_blank">
+                                <GithubIcon className="h-4 w-4" fill="black" />
+                                <p className="text-[10px] pl-1">github.com/StevenJohnston</p>
+                            </a>
+                        </div>
+                        <div className="flex flex-row">
+                            <a className="flex flex-row text-black no-underline " href="https://www.linkedin.com/in/steven-johnston-6a162487/" target="_blank">
+                                <Linked fill="black" className="h-4 w-4" />
+                                <p className="text-[10px] pl-1">linkedin.com/StevenJohnston</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div className="text-sm w-2/3">
-                    <div className="h-8 flex flex-row-reverse">
-                        {
-                            !isPdf && (
-                                <a href="/api/pdf" className="border-red-700 border-2 rounded-md text-red-700 font-bold px-16 py-2 mb-2 self-end" target="_blank">Download PDF</a>
-                            )
-                        }
-                    </div>
+                <div className="text-sm sm:w-2/3">
+                    <ResumeDownload
+                        isPdf={isPdf}
+                        className="sm:flex hidden justify-end flex-row h-8"
+                    />
                     <p>
                         With 8+ years of experience, I'm a versatile full-stack developer adept at building software solutions for early-stage companies. I have a strong foundation in both front-end and back-end development, as well as experience with DevOps practices (AWS, CDK, CI/CD, Git). This allows me to seamlessly translate concepts into scalable products while offering strategic technical guidance.
                     </p>
@@ -169,6 +169,11 @@ const Resume = ({ isPdf }: ResumeProps) => {
                     />
                 </div>
             </div>
+
+            <ResumeDownload
+                isPdf={isPdf}
+                className="flex sm:hidden flex-row justify-center"
+            />
         </div>
     );
 };
