@@ -4,8 +4,9 @@ import Html from 'react-pdf-html';
 import { createTw } from "react-pdf-tailwind";
 
 export interface ResumePageProps {
-  isPdf: boolean
+  isPdf?: boolean
 }
+
 export type ResumePage = ({ isPdf }: ResumePageProps) => JSX.Element
 
 const tw = createTw({
@@ -31,7 +32,7 @@ Font.register({
   ]
 });
 
-export const MyDoc = async (resumePage: ResumePage) => {
+export default async function MyDoc(resumePage: ResumePage) {
   const ReactDOMServer = (await import('react-dom/server')).default
 
   const defaultPage = resumePage({ isPdf: true })
