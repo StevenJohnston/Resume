@@ -34,7 +34,7 @@ export default function ({ isPdf, children }: ResumeProps) {
         <div>
           <WorkExperience
             title="Full Stack Founding Engineer"
-            employer="Atomic"
+            employer="Atomic VC"
             fromDate="Sept 2022"
             toDate="Feb 2024"
           >
@@ -52,7 +52,7 @@ export default function ({ isPdf, children }: ResumeProps) {
           </WorkExperience>
           <WorkExperience
             title="Full Stack Developer"
-            employer="Adentro/Atomic"
+            employer="Adentro/Atomic VC"
             fromDate="March 2022"
             toDate="Sept 2022"
           >
