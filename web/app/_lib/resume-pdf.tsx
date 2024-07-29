@@ -4,7 +4,7 @@ import Html from 'react-pdf-html';
 import { createTw } from "react-pdf-tailwind";
 
 export interface ResumePageProps {
-  isPdf?: boolean
+  isPdf: boolean
 }
 
 export type ResumePage = ({ isPdf }: ResumePageProps) => JSX.Element
