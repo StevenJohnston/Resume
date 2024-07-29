@@ -1,18 +1,14 @@
-import DefaultEducation from "@/app/(personalized)/components/DefaultEducation";
-import DefaultTechnologies from "@/app/(personalized)/components/DefaultTechnologies";
-import DefaultWorkExperience from "@/app/(personalized)/components/DefaultWorkExperience";
-import ToastAbout from "@/app/(personalized)/toast/components/ToastAbout";
-import Resume from "@/app/_components/Resume";
+import Resume from "@/app/_components/Resume"
 import { ResumePageProps } from "@/app/_lib/resume-pdf";
 
 export default function ({ isPdf }: ResumePageProps) {
   return (
     <Resume
       isPdf={isPdf}
-      about={<ToastAbout isPdf={isPdf} />}
-      workExperience={<DefaultWorkExperience isPdf={isPdf} />}
-      eduction={<DefaultEducation />}
-      technologies={<DefaultTechnologies />}
-    />
+    >
+      <p>
+        With 8+ years of experience, I'm a versatile full-stack developer with experience creating software solutions in both the restaurant and financial sectors. Recently at Atomic VC, I honed my ability to rapidly onboard and contribute to diverse product portfolios, leveraging my technical expertise (front-end, back-end, DevOps) to guide projects to success. I'm driven to new technologies and always looking for an opportunity to learn.
+      </p>
+    </Resume>
   );
 }
