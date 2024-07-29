@@ -1,12 +1,15 @@
 import ReactPDF from '@react-pdf/renderer';
 import DefaultResume from '@/app/(personalized)/components/DefaultResume'
-import ToastResume from '@/app/(personalized)/toast/components/ToastResume'
 import MyDoc from '@/app/_lib/resume-pdf';
+
+import ToastResume from '@/app/(personalized)/toast/components/ToastResume'
+import CoinbaseResume from '@/app/(personalized)/coinbase/components/CoinbaseResume';
 
 export type ResumePage = ({ isPdf }: { isPdf: boolean }) => JSX.Element
 
 const ROLE_PAGE_LOOKUP = {
-  toast: ToastResume
+  toast: ToastResume,
+  coinbase: CoinbaseResume,
 }
 
 interface RoleRequest {
