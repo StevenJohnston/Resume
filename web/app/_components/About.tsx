@@ -3,11 +3,13 @@ import ResumeDownload from "@/app/_components/ResumeDownload"
 import GithubIcon from "@/app/_components/github-outline.svg"
 import Linked from "@/app/_components/linkedin-outline.svg"
 interface About {
-  isPdf?: boolean
+  title: string
+  isPdf: boolean
   children?: React.ReactNode
 }
 
 export default function About({
+  title,
   isPdf,
   children,
 }: About) {
@@ -15,7 +17,7 @@ export default function About({
     <>
       <div className="mr-6 flex flex-col sm:w-1/3">
         <h1 className="text-[1.4rem] leading-none" >STEVEN JOHNSTON</h1>
-        <p className="font-bold flex text-sm text-red-700 mb-2">Full-Stack Engineer</p>
+        <p className="font-bold flex text-sm text-red-700 mb-2">{title}</p>
         <div className="justify-evenly flex-wrap flex sm:block">
           <div className="flex flex-row">
             <EnvelopeIcon className="h-4 w-4" fill="white" />
@@ -36,18 +38,20 @@ export default function About({
             </a>
           </div>
           <div className="flex flex-row">
-            <a className="flex flex-row text-black no-underline " href="https://www.linkedin.com/in/steven-johnston-6a162487/" target="_blank">
+            <a className="flex flex-row text-black no-underline " href="https://www.linkedin.com/in/StevenDJohnston" target="_blank">
               <Linked fill="black" className="h-4 w-4" />
-              <p className="text-[10px] pl-1">linkedin.com/StevenJohnston</p>
+              <p className="text-[10px] pl-1">linkedin.com/in/StevenDJohnston</p>
             </a>
           </div>
         </div>
       </div>
       <div className="text-sm sm:w-2/3">
-        <ResumeDownload
-          isPdf={isPdf}
-          className="sm:flex hidden justify-end flex-row h-8"
-        />
+        {
+          !isPdf
+          && <ResumeDownload
+            className="sm:flex hidden justify-end flex-row h-8"
+          />
+        }
         {children}
       </div>
     </>
