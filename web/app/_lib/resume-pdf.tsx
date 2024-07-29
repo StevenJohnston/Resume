@@ -19,19 +19,6 @@ const tw = createTw({
   },
 });
 
-Font.register({
-  family: 'Arial',
-  fonts: [
-    {
-      src: './public/fonts/Arial/ARIAL.ttf',
-    },
-    {
-      src: './public/fonts/Arial/ARIALBD.ttf',
-      fontWeight: 'bold'
-    },
-  ]
-});
-
 export default async function MyDoc(resumePage: ResumePage) {
   const ReactDOMServer = (await import('react-dom/server')).default
 
@@ -41,7 +28,6 @@ export default async function MyDoc(resumePage: ResumePage) {
   const t = <Document>
     <Page
       size="A4"
-      style={{ fontFamily: 'Arial' }}
     >
       <Html
         resetStyles
