@@ -4,12 +4,14 @@ import MyDoc from '@/app/_lib/resume-pdf';
 
 import ToastResume from '@/app/(personalized)/toast/components/ToastResume'
 import CoinbaseResume from '@/app/(personalized)/coinbase/components/CoinbaseResume';
+import WealthsimpleResume from '@/app/(personalized)/wealthsimple/components/WealthsimpleResume';
 
 export type ResumePage = ({ isPdf }: { isPdf: boolean }) => JSX.Element
 
 const ROLE_PAGE_LOOKUP = {
   toast: ToastResume,
   coinbase: CoinbaseResume,
+  wealthsimple: WealthsimpleResume
 }
 
 interface RoleRequest {

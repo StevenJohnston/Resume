@@ -12,12 +12,13 @@ interface ResumeProps {
   projects?: React.ReactNode
 
   isPdf?: boolean
+  tight?: boolean
 }
 
-function renderWorkExperience(workExperience: React.ReactNode) {
+function renderWorkExperience(workExperience: React.ReactNode, tight: boolean = false) {
   return (
     <div>
-      <div className="flex flex-row mb-2">
+      <div className={`flex flex-row ${tight ? 'mb-1' : 'mb-2'} `}>
         <div className="text-base font-bold text-red-700 mr-2">
           Work Experience
         </div>
@@ -31,10 +32,10 @@ function renderWorkExperience(workExperience: React.ReactNode) {
   )
 }
 
-function renderEduction(eduction: React.ReactNode) {
+function renderEduction(eduction: React.ReactNode, tight: boolean = false) {
   return (
     <div>
-      <div className="flex flex-row mb-2">
+      <div className={`flex flex-row ${tight ? 'mb-1' : 'mb-2'}`}>
         <div className="text-base font-bold text-red-700 mr-2">
           Education
         </div>
@@ -48,11 +49,11 @@ function renderEduction(eduction: React.ReactNode) {
   )
 }
 
-function renderTechnologies(technologies: React.ReactNode) {
+function renderTechnologies(technologies: React.ReactNode, tight: boolean = false) {
   return (
 
     <div>
-      <div className="flex flex-row mb-2">
+      <div className={`flex flex-row ${tight ? 'mb-1' : 'mb-2'}`}>
         <div className="text-base font-bold text-red-700 mr-2">
           Languages and Technologies
         </div>
@@ -66,11 +67,10 @@ function renderTechnologies(technologies: React.ReactNode) {
   )
 }
 
-function renderProjects(projects: React.ReactNode) {
+function renderProjects(projects: React.ReactNode, tight: boolean = false) {
   return (
-
     <div>
-      <div className="flex flex-row mb-2">
+      <div className={`flex flex-row ${tight ? 'mb-1' : 'mb-2'}`}>
         <div className="text-base font-bold text-red-700 mr-2">
           Projects
         </div>
@@ -85,16 +85,16 @@ function renderProjects(projects: React.ReactNode) {
 }
 
 
-export default function Resume({ about, workExperience, eduction, technologies, projects, isPdf }: ResumeProps) {
+export default function Resume({ about, workExperience, eduction, technologies, projects, tight, isPdf }: ResumeProps) {
   return (
     <div className="px-4 sm:px-12 py-8 sm:max-w-4xl">
       <div className="mb-2 flex flex-col sm:flex-row">
         {about}
       </div>
-      {workExperience && renderWorkExperience(workExperience)}
-      {projects && renderProjects(projects)}
-      {eduction && renderEduction(eduction)}
-      {technologies && renderTechnologies(technologies)}
+      {workExperience && renderWorkExperience(workExperience, tight)}
+      {projects && renderProjects(projects, tight)}
+      {eduction && renderEduction(eduction, tight)}
+      {technologies && renderTechnologies(technologies, tight)}
       {
         !isPdf
         && <ResumeDownload
